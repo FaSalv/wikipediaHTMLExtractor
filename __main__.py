@@ -1,14 +1,17 @@
-from source import *
+from input.wikiurls import wikiurls
 from source.HTMLExtractor import HTMLExtractor
-from bs4 import BeautifulSoup
-import pandas as pd
-import requests
 
 extractor = HTMLExtractor()
 
 if __name__ == '__main__':
 
-    extractor.extractor("Comparison_of_digital_SLRs")
+    nbrPageTraitee = 0
 
-"""Comparison_between_Esperanto_and_Ido
-"""
+    for i in range(0,len(wikiurls)):
+        url = wikiurls[i]
+        extractor = HTMLExtractor()
+        extractor.extractor(url)
+        nbrPageTraitee = nbrPageTraitee + 1
+
+
+
